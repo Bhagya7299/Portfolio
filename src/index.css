@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0b0f19;
+  color: #f3f4f6;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom Typography classes */
+.font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Theme Color Variables */
+.theme-obsidian {
+  --bg-primary: #0b0f19;
+  --bg-card: rgba(17, 24, 39, 0.7);
+  --accent-color: #6366f1;
+  --accent-glow: rgba(99, 102, 241, 0.4);
+  --accent-light: #818cf8;
+  --badge-bg: rgba(99, 102, 241, 0.15);
+}
+
+.theme-emerald {
+  --bg-primary: #061912;
+  --bg-card: rgba(6, 40, 29, 0.7);
+  --accent-color: #10b981;
+  --accent-glow: rgba(16, 185, 129, 0.4);
+  --accent-light: #34d399;
+  --badge-bg: rgba(16, 185, 129, 0.15);
+}
+
+.theme-cyberpunk {
+  --bg-primary: #0f051d;
+  --bg-card: rgba(30, 10, 50, 0.7);
+  --accent-color: #ec4899;
+  --accent-glow: rgba(236, 72, 153, 0.4);
+  --accent-light: #f472b6;
+  --badge-bg: rgba(236, 72, 153, 0.15);
+}
+
+.theme-light {
+  --bg-primary: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --accent-color: #4f46e5;
+  --accent-glow: rgba(79, 70, 229, 0.3);
+  --accent-light: #6366f1;
+  --badge-bg: rgba(79, 70, 229, 0.1);
+}
+
+/* Glassmorphism styling */
+.glass-panel {
+  background: var(--bg-card, rgba(17, 24, 39, 0.7));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-interactive {
+  background: var(--bg-card, rgba(17, 24, 39, 0.7));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-interactive:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.25);
+}
+
+/* Glowing text & border effects */
+.glow-text {
+  text-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 50%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-emerald {
+  background: linear-gradient(135deg, #ffffff 0%, #6ee7b7 50%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Pulse animation */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090d16;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f293d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}
+
+/* Print styling for resume */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .glass-panel {
+    background: none !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+}
